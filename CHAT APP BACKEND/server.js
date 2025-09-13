@@ -74,7 +74,7 @@ const { Server } = require('socket.io');
 // Routes
 const authRoutes = require('./routes/authRoutes');
 const messageRoutes = require('./routes/messageRoutes');
-const notificationRoutes = require('./routes/notificationRoutes');
+// const notificationRoutes = require('./routes/notificationRoutes');
 
 // Socket
 const initSocket = require('./socket');
