@@ -17,4 +17,4 @@ const Redis = require('ioredis');
 //   console.error('Redis error:', err);
 // });
 
-module.exports = redis;
+// module.exports = redis;
