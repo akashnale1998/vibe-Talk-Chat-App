@@ -1,6 +1,6 @@
 const User = require('../models/User');
 const Message = require('../models/Message');
-const { sendPushToUser } = require('../server/notify');
+// const { sendPushToUser } = require('../server/notify');
 // const { sendPushToUser } = require('..');
 module.exports = (io, socket, onlineUsers) => {
   // console.log("IO is :",io,"socket is:",socket,"onlineusers is:",onlineUsers)
@@ -172,27 +172,27 @@ socket.on("message_delivered", async (messageId) => {
 
 
     // Example: Chat message event
-  socket.on('send-message', async ({ to, message }) => {
-    const targetSocketId = onlineUsers.getSocketId(to);
-    if (targetSocketId) {
-      io.to(targetSocketId).emit('receive-message', { from: socket.userId, message });
-    } else {
-      await sendPushToUser(to, {
-        title: 'New Message',
-        body: message,
-        data: { from: socket.userId }
-      });
-    }
-  });
+  // socket.on('send-message', async ({ to, message }) => {
+  //   const targetSocketId = onlineUsers.getSocketId(to);
+  //   if (targetSocketId) {
+  //     io.to(targetSocketId).emit('receive-message', { from: socket.userId, message });
+  //   } else {
+  //     await sendPushToUser(to, {
+  //       title: 'New Message',
+  //       body: message,
+  //       data: { from: socket.userId }
+  //     });
+  //   }
+  // });
 
   // Notification event
-  socket.on('send-notification', async ({ toUserId, title, body, data }) => {
-    const targetSocketId = onlineUsers.getSocketId(toUserId);
-    if (targetSocketId) {
-      io.to(targetSocketId).emit('notification', { title, body, data });
-    } else {
-      await sendPushToUser(toUserId, { title, body, data });
-    }
-  });
+  // socket.on('send-notification', async ({ toUserId, title, body, data }) => {
+  //   const targetSocketId = onlineUsers.getSocketId(toUserId);
+  //   if (targetSocketId) {
+  //     io.to(targetSocketId).emit('notification', { title, body, data });
+  //   } else {
+  //     await sendPushToUser(toUserId, { title, body, data });
+  //   }
+  // });
 
 };
