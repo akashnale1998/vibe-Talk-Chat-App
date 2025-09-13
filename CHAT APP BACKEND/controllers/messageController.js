@@ -1,5 +1,5 @@
 const Message = require('../models/Message');
-const redis = require('../redis/redisClient');
+// const redis = require('../redis/redisClient');
 
 // @desc    Get all messages between two users
 // @route   GET /api/messages/:from/:to
